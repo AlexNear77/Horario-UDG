@@ -19,10 +19,28 @@ router.post('/',
 //----------------------------------------
 //             Mostrar Horarios
 //=======================================
-//          endpoint: api/horarios
 router.get('/', 
    auth,
-   horarioController.crearHorario
+   horarioController.obtenerHorarios
 );
+
+//----------------------------------------
+//             Actualizar Horario
+//=======================================
+router.put('/:id',
+   auth,
+   [
+      check('nombre','El nombre del horario es obligatorio').not().isEmpty()
+   ],
+   horarioController.actualizarHorarios
+);
+
+//----------------------------------------
+//             Eliminar Horario
+//=======================================
+router.delete('/:id',
+   auth,
+   horarioController.eliminarHorario
+)
 
 module.exports = router;
