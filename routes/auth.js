@@ -8,9 +8,9 @@ const authController = require('../controllers/authController');
 
 
 //----------------------------------------
-//             Crea un usuario
+//               autenticacion
 //=======================================
-//          endpoint: api/usuarios
+//          endpoint: api/auth
 router.post('/',
    [
       check('email', 'Agrega un email valido').isEmail(),
