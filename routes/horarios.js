@@ -10,7 +10,6 @@ const horarioController = require('../controllers/horarioController');
 //          endpoint: api/horarios
 router.post('/', 
    horarioController.crearHorario
-   
 );
 
 module.exports = router;
