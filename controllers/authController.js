@@ -45,3 +45,14 @@ exports.autenticarUsuario = async (req,res) =>{
        console.log(error);
     }
 }
+
+exports.usuarioAutenticado = async (req,res) =>{
+   try {
+      const usuario = await Usuario.findById(req.usuario.id);
+      res.json({usuario});
+      
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({msg:'Error en el controlador auth, metodo obtener usuario'});
+   }
+}
