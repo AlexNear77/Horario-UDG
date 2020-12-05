@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MateriaSchema = mongoose.Schema({
+const UdgSchema = mongoose.Schema({
    nombre:{
       type: String,
       required: false
@@ -25,11 +25,7 @@ const MateriaSchema = mongoose.Schema({
    creado:{
       type: Date,
       default: Date.now()
-   },
-   horario:{
-      type: mongoose.Schema.Types.ObjectId,
-      ref:'Horario'
    }
 });
 
-module.exports = mongoose.model('Materia',MateriaSchema);
+module.exports = mongoose.model('Udg',UdgSchema);

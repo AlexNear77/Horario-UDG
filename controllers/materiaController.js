@@ -44,7 +44,7 @@ exports.obtenerMaterias = async (req,res) =>{
    
    try {
       //Extraer el horario y comprobar si existe
-      const {horario} = req.body;
+      const {horario} = req.query;
       const existehorario = await Horario.findById(horario);
       if(!existehorario){
          return res.status(404).json({msg: 'Horario no encontrado'});
@@ -55,7 +55,7 @@ exports.obtenerMaterias = async (req,res) =>{
       }
 
       //Obtnener materias por horario
-      const materias = await Materia.find({horario});
+      const materias = await Materia.find({horario}).sort({creado:-1});
       res.json({materias});
 
    } catch (error) {
@@ -66,13 +66,13 @@ exports.obtenerMaterias = async (req,res) =>{
 
 
 //-------------------------------------
-//    Mostrar materias por Horario
+//    Eliminar materias
 //====================================
 exports.eliminarMateria = async (req,res) =>{
 
    try {
       //extraer el horario y comprobar si existe
-      const {horario} = req.body;
+      const {horario} = req.query;
       //si la materia existe o no
       
       let materia = await Materia.findById(req.params.id);
