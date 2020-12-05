@@ -26,7 +26,7 @@ app.use(express.json({extended: true}));
 //--------------------------------------
 //        Creacion del puerto        
 //=====================================
-const PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 //--------------------------------------
 //         Importacion de RUTAS        
@@ -40,6 +40,6 @@ app.use('/api/udg', require('./routes/udg'));
 //--------------------------------------
 //           Iniciando sever        
 //=====================================
-app.listen(PORT, () =>{
-   console.log(`Corriendo servidor en el puerto ${PORT}`);
+app.listen(port, '0.0.0.0', () =>{
+   console.log(`Corriendo servidor en el puerto ${port}`);
 });
