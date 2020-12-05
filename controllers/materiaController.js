@@ -97,3 +97,18 @@ exports.eliminarMateria = async (req,res) =>{
       res.status(500).send('Error en materia Controller, metodo Eliminar');  
    }
 }
+
+//-----------------------------------------
+//          Obtener materias por usuario
+//========================================
+exports.obtenerMateriasUser = async (req,res) =>{
+   try {
+      //Nota: Tenemos en el req.body gracias al middleware auth el id del usuario logeado ergo...
+      const materias = await Materia.find({creador: req.usuario.id});
+      res.json({materias});
+      
+   } catch (error) {
+      console.log(error);
+      res.status(500).send('Hubo un errror');
+   }
+}

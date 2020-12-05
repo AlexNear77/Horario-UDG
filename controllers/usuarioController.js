@@ -18,11 +18,10 @@ exports.crearUsuario = async (req,res) =>{
    // extraer email y password
    const { email,password } = req.body;
 
-
    try {
       //Revisar que el usuario registrado sea unico 
       let usuario = await Usuario.findOne({email});
-
+      
       if(usuario){
          return res.status(400).json({msg:'El usuario ya existe'});
       }
@@ -49,7 +48,7 @@ exports.crearUsuario = async (req,res) =>{
       },(error,token) =>{
          if(error) throw error;
          //menaje
-         res.json({token});
+         res.json({token:token});
       });
  
 

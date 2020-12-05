@@ -23,6 +23,13 @@ router.get('/',
    materiaController.obtenerMaterias
 );
 //----------------------------------------
+//       Mostrar Materias por Usuario
+//=======================================
+router.get('/user',
+   auth,
+   materiaController.obtenerMateriasUser
+);
+//----------------------------------------
 //             Eliminar materia
 //=======================================
 router.delete('/:id',
